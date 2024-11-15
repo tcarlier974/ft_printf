@@ -8,7 +8,6 @@ SRC = ft_printf.c \
 	prints.c \
 	printp.c \
 	printx.c \
-	printX.c \
 	printu.c
 
 # Objets correspondant aux sources

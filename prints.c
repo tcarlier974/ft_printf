@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   prints.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcarlier <tcarlier@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: tcarlier <tcarlier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:43:51 by tcarlier          #+#    #+#             */
-/*   Updated: 2024/11/12 17:06:39 by tcarlier         ###   ########.fr       */
+/*   Updated: 2024/11/15 17:39:35 by tcarlier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	prints(char *str)
 {
 	int	i;
 
+	if (!str)
+		return (prints("(null)"));
 	i = 0;
 	while (str[i])
 	{

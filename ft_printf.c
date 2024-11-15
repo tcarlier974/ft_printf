@@ -6,7 +6,7 @@
 /*   By: tcarlier <tcarlier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 12:42:56 by tcarlier          #+#    #+#             */
-/*   Updated: 2024/11/12 19:55:55 by tcarlier         ###   ########.fr       */
+/*   Updated: 2024/11/15 17:36:35 by tcarlier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ int	ft_printf(const char *fmt, ...)
 
 	va_start(arg, fmt);
 	i = 0;
+	j = 0;
 	while (fmt[i])
 	{
 		if (fmt[i] == '%' && in_charset(fmt[i + 1]))
@@ -72,7 +73,7 @@ int	ft_printf(const char *fmt, ...)
 		i++;
 		j++;
 	}
-	return (j - 1);
+	return (j);
 }
 
 /*#include <stdio.h>

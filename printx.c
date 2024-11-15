@@ -3,15 +3,55 @@
 /*                                                        :::      ::::::::   */
 /*   printx.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcarlier <tcarlier@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: tcarlier <tcarlier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 16:56:36 by tcarlier          #+#    #+#             */
-/*   Updated: 2024/11/13 22:06:15 by tcarlier         ###   ########.fr       */
+/*   Updated: 2024/11/15 18:38:08 by tcarlier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft.h"
+
+int	nblen_16(long n)
+{
+	int	len;
+
+	len = 0;
+	if (n == 0)
+		return (1);
+	while (n > 0)
+	{
+		n /= 16;
+		len++;
+	}
+	return (len);
+}
+
+char	*int_to_base_16(unsigned int n)
+{
+	long	nb;
+	char	*dst;
+	int		i;
+
+	nb = (long)n;
+	if (n == 0)
+		return (ft_strdup("0"));
+	dst = (char *)malloc(sizeof(char) * (nblen_16(nb) + 1));
+	if (!dst)
+		return (NULL);
+	i = nblen_16(nb) - 1;
+	while (nb > 0)
+	{
+		if (nb % 16 < 10)
+			dst[i--] = (nb % 16) + 48;
+		else
+			dst[i--] = (nb % 16) + 87;
+		nb /= 16;
+	}
+	dst[nblen_16(n)] = '\0';
+	return (dst);
+}
 
 int	printx(unsigned int n)
 {
@@ -19,18 +59,15 @@ int	printx(unsigned int n)
 	int		len;
 	int		i;
 
-	if (!n)
-		return (prints("(nul)"));
-	str = int_to_hexa(n);
-	len = 0;
+	str = int_to_base_16(n);
 	i = 0;
 	while (str[i])
 	{
 		if (ft_isalpha(str[i]))
-			str[i] += 'A' - 'a';
+			str[i] += 32;
 		i++;
 	}
-	len += prints(str);
+	len = prints(str);
 	free(str);
 	return (len);
 }
@@ -40,11 +77,8 @@ int	print_x(unsigned int nb)
 	char	*str;
 	int		len;
 
-	if (!nb)
-		prints("(nul)");
-	str = int_to_hexa(nb);
-	len = 0;
-	len += prints(str);
+	str = int_to_base_16(nb);
+	len = prints(str);
 	free(str);
 	return (len);
 }

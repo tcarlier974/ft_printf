@@ -6,7 +6,7 @@
 /*   By: tcarlier <tcarlier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 12:43:24 by tcarlier          #+#    #+#             */
-/*   Updated: 2024/11/12 17:10:05 by tcarlier         ###   ########.fr       */
+/*   Updated: 2024/11/15 17:30:10 by tcarlier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
+# include <stdint.h>
 
 int		ft_printf(const char *fmt, ...);
 int		printc(char c);
