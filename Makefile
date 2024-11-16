@@ -29,8 +29,8 @@ all : $(LIBFT) $(NAME)
 
 # Création de la bibliothèque ft_printf avec libft
 $(NAME) : $(OBJ) $(LIBFT)
-	cp $(LIBFT) $(NAME)                 # Copie libft.a dans libftprintf.a
-	ar rcs $(NAME) $(OBJ)                # Ajoute les objets de ft_printf
+	cp $(LIBFT) $(NAME)
+	ar rcs $(NAME) $(OBJ)
 
 # Compilation de libft (supposant que libft a un Makefile)
 $(LIBFT) :
@@ -39,12 +39,12 @@ $(LIBFT) :
 # Nettoyage des fichiers objets
 clean :
 	rm -rf $(OBJ)
-	$(MAKE) -C $(LIBFT_DIR) clean        # Nettoie également dans libft
+	$(MAKE) -C $(LIBFT_DIR) clean
 
 # Nettoyage complet
 fclean : clean
 	rm -f $(NAME)
-	$(MAKE) -C $(LIBFT_DIR) fclean       # Supprime libft.a dans libft
+	$(MAKE) -C $(LIBFT_DIR) fclean
 
 # Reconstruction complète
 re : fclean all

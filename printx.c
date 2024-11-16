@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printx.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcarlier <tcarlier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tcarlier <tcarlier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 16:56:36 by tcarlier          #+#    #+#             */
-/*   Updated: 2024/11/15 18:38:08 by tcarlier         ###   ########.fr       */
+/*   Updated: 2024/11/16 01:20:00 by tcarlier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,16 @@ int	printx(unsigned int n)
 	int		len;
 	int		i;
 
+	if (n == 0)
+		return (write(1, "0", 1));
 	str = int_to_base_16(n);
+	if (!str)
+		return (0);
 	i = 0;
 	while (str[i])
 	{
-		if (ft_isalpha(str[i]))
-			str[i] += 32;
+		if (str[i] >= 'A' && str[i] <= 'Z')
+			str[i] = str[i] + 32;
 		i++;
 	}
 	len = prints(str);
@@ -72,13 +76,18 @@ int	printx(unsigned int n)
 	return (len);
 }
 
-int	print_x(unsigned int nb)
+int	print_x(unsigned int n)
 {
 	char	*str;
 	int		len;
 
-	str = int_to_base_16(nb);
+	if (n == 0)
+		return (write(1, "0", 1));
+	str = int_to_base_16(n);
+	if (!str)
+		return (0);
 	len = prints(str);
 	free(str);
 	return (len);
 }
+
