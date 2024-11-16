@@ -6,7 +6,7 @@
 /*   By: tcarlier <tcarlier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 16:56:36 by tcarlier          #+#    #+#             */
-/*   Updated: 2024/11/16 01:20:00 by tcarlier         ###   ########.fr       */
+/*   Updated: 2024/11/16 01:22:28 by tcarlier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,19 +75,26 @@ int	printx(unsigned int n)
 	free(str);
 	return (len);
 }
-
+//modify to make print_x similar as printx but with uppercase
 int	print_x(unsigned int n)
 {
 	char	*str;
 	int		len;
+	int		i;
 
 	if (n == 0)
 		return (write(1, "0", 1));
 	str = int_to_base_16(n);
 	if (!str)
 		return (0);
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] >= 'a' && str[i] <= 'z')
+			str[i] = str[i] - 32;
+		i++;
+	}
 	len = prints(str);
 	free(str);
 	return (len);
 }
-
