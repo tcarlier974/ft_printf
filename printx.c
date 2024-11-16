@@ -6,7 +6,7 @@
 /*   By: tcarlier <tcarlier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 16:56:36 by tcarlier          #+#    #+#             */
-/*   Updated: 2024/11/16 01:22:28 by tcarlier         ###   ########.fr       */
+/*   Updated: 2024/11/16 15:13:56 by tcarlier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	printx(unsigned int n)
 	free(str);
 	return (len);
 }
-//modify to make print_x similar as printx but with uppercase
+
 int	print_x(unsigned int n)
 {
 	char	*str;
